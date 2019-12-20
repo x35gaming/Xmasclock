@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>countdown</title>
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+  <header id="titlebar">
+    <div id="drag-region">
+      
+      <div id="window-title">
+        <span>Countdown</span>
+      </div>
+      
+      <div id="window-controls">
+
+
+        <div class="button" id="min-button">
+          <span>&#xE921;</span>
+        </div>
+        <div class="button" id="max-button">
+          <span>&#xE922;</span>
+        </div>
+
+        <div class="button" id="restore-button">
+          <span>&#xE923;</span>
+        </div>
+        <div class="button" id="close-button">
+          <span>&#xE8BB;</span>
+        </div>
+        
+      </div>
+    </div>
+  </header>
+  <script>
+    
+    
+    // Set the date we're counting down to
+    var countDownDate = new Date("Dec 25, " + new Date().getFullYear() +" 00:00:00").getTime();
+    
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+      
+      // Get today's date and time
+      var now = new Date().getTime();
+      
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+      
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      // Display the result in the element with id="demo"
+      document.getElementById("demo").innerHTML = "<div class='red'>" + days + "</div> days, <div class='red'>" + hours + "</div> hours, <div class='red'>"
+      + minutes + "</div> minutes, <div class='red'>" + seconds + "</div> seconds, ";
+      
+      // If the count down is finished, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "Merry Xmas!";
+      }
+    }, 1000);
+  </script>
+  <div id="main">
+    <div class="exclusion">
+    <h1>Only...</h1>
+    <h0 id="demo"></h0>
+    <h1>Untill xmas</h1></div>
+    <button type="button" onclick="javascript:location.reload()">reset</button>
+  </div>
+
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "xmasclock",
+  "version": "1.0.0",
+  "description": "xmas countdown",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "xmas",
+    "countdown"
+  ],
+  "author": "x35gaming",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "electron": "^7.1.7"
+  },
+  "devDependencies": {}
+}
